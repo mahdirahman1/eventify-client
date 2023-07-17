@@ -17,7 +17,6 @@ import { getJwtToken } from "./utils";
 
 const link = createHttpLink({
 	uri: "https://eventify-630f3b9f69a0.herokuapp.com/graphql",
-	credentials: "include",
 });
 
 const authLink = setContext((_, { headers }) => {
