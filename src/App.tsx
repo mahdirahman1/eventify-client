@@ -8,14 +8,17 @@ import { setJwtToken } from "./utils";
 function App() {
 	const routes = createRoutes();
 	const dispatch = useDispatch();
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 
 	const refreshToken = async () => {
 		setLoading(true);
-		const data = await fetch("http://localhost:4000/refresh_token", {
-			method: "POST",
-			credentials: "include",
-		});
+		const data = await fetch(
+			"https://eventify-630f3b9f69a0.herokuapp.com/refresh_token",
+			{
+				method: "POST",
+				credentials: "include",
+			}
+		);
 		const json = await data.json();
 		const { token, userId } = json;
 		setJwtToken(token);
@@ -32,7 +35,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		refreshToken();
+		// refreshToken();
 	}, []);
 
 	if (loading) {

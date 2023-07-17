@@ -16,7 +16,7 @@ import store from "./store";
 import { getJwtToken } from "./utils";
 
 const link = createHttpLink({
-	uri: "http://localhost:4000/graphql",
+	uri: "https://eventify-630f3b9f69a0.herokuapp.com/graphql",
 	credentials: "include",
 });
 
@@ -37,9 +37,9 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
-const root = ReactDOM.createRoot(document.getElementById(
-	"root"
-) as HTMLElement);
+const root = ReactDOM.createRoot(
+	document.getElementById("root") as HTMLElement
+);
 root.render(
 	<React.StrictMode>
 		<ReduxProvider store={store}>
