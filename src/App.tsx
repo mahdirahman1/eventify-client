@@ -16,10 +16,10 @@ function App() {
 			"https://eventify-630f3b9f69a0.herokuapp.com/refresh_token",
 			{
 				method: "POST",
-				credentials: "include",
 			}
 		);
 		const json = await data.json();
+		console.log(json);
 		const { token, userId } = json;
 		setJwtToken(token);
 		setTimeout(() => {
@@ -35,7 +35,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		// refreshToken();
+		refreshToken();
 	}, []);
 
 	if (loading) {
