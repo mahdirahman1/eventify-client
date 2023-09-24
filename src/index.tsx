@@ -16,7 +16,7 @@ import store from "./store";
 import { getJwtToken } from "./utils";
 
 const link = createHttpLink({
-	uri: "https://eventify-630f3b9f69a0.herokuapp.com/graphql",
+	uri: `{${process.env.REACT_APP_SERVER}/graphql`,
 });
 
 const authLink = setContext((_, { headers }) => {

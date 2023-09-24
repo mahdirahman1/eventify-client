@@ -12,12 +12,9 @@ function App() {
 
 	const refreshToken = async () => {
 		setLoading(true);
-		const data = await fetch(
-			"https://eventify-630f3b9f69a0.herokuapp.com/refresh_token",
-			{
-				method: "POST",
-			}
-		);
+		const data = await fetch(`${process.env.REACT_APP_SERVER}/refresh_token`, {
+			method: "POST",
+		});
 		const json = await data.json();
 		console.log(json);
 		const { token, userId } = json;
